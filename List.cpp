@@ -89,3 +89,14 @@ std::string List::toString(){
   result = result + "nullptr";
   return result;
 }
+
+bool List::contains(std::string item) {
+  Node *tmp = this->head;
+  while (tmp != nullptr) {
+    if (tmp->getData() == item) {
+      return true;
+    }
+    tmp = tmp->getNext();
+  }
+    return false;
+}

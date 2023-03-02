@@ -30,7 +30,8 @@ class List{
   int length(); // the # of elements
 
   */
-  
-  
 
+
+
+  bool contains(std::string item);
 };
