@@ -1,4 +1,5 @@
 #include <iostream>
+#include <utility>
 #include "Node.h"
 
 Node::Node() : next(nullptr)
@@ -6,18 +7,18 @@ Node::Node() : next(nullptr)
 }
 
 Node::Node(std::string data, Node *next){
-  this->data = data;
+  this->data = std::move(data);
   this->next = next;
   
 }
 
 Node::Node(std::string data){
-  this->data = data;
+  this->data = std::move(data);
   this->next = nullptr;
 }
 
 void Node::setData(std::string data){
-  this->data = data;
+  this->data = std::move(data);
 }
 
 void Node::setNext(Node *next){

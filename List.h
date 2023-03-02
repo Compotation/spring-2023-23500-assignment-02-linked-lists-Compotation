@@ -36,7 +36,7 @@ class List{
 
 
 
-  bool contains(std::string item);
+  bool contains(const std::string &item);
 
   void remove(int loc);
 };

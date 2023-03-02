@@ -1,4 +1,5 @@
 #include <iostream>
+#include <utility>
 #include "Node.h"
 #include "List.h"
 
@@ -8,7 +9,7 @@ List::List(){
 
 // insert at the "front" (head)
 void List::insert(std::string data){
-  Node *tmp = new Node(data);
+  Node *tmp = new Node(std::move(data));
   tmp->setNext(head);
   head = tmp;
 }
@@ -46,7 +47,7 @@ void List::insert(int loc, std::string data){
     throw std::out_of_range("Our insert is out of range");
   }
 
-  Node *newNode = new Node(data);
+  Node *newNode = new Node(std::move(data));
   // Inserting at true location 0
   // will have trailer == nullptr
   // - we have to treat that as a special case
@@ -80,17 +81,17 @@ int List::length(){
 
 std::string List::toString(){
   Node *tmp = this->head;
-  std::string result = "";
-  while (tmp != nullptr){
-    result = result + tmp->getData();
-    result = result + "-->";
+  std::string result;
+  while (tmp != nullptr) {
+    result += tmp->getData();
+    result += "-->";
     tmp = tmp->getNext();
   }
   result = result + "nullptr";
   return result;
 }
 
-bool List::contains(std::string item) {
+bool List::contains(const std::string &item) {
   Node *tmp = this->head;
   while (tmp != nullptr) {
     if (tmp->getData() == item) {
@@ -98,7 +99,7 @@ bool List::contains(std::string item) {
     }
     tmp = tmp->getNext();
   }
-    return false;
+  return false;
 }
 
 void List::remove(int loc) {
