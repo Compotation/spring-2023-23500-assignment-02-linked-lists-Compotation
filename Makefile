@@ -9,4 +9,4 @@ main.o: main.cpp List.h Node.h
 List.o: List.cpp List.h Node.h
 Node.o: Node.cpp Node.h
 clean:
-	rm main node.o list.o
+	rm main *.o
