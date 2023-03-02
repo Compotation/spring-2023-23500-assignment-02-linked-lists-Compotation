@@ -103,6 +103,9 @@ bool List::contains(const std::string &item) {
 }
 
 void List::remove(int loc) {
+  if (loc >= this->length()) {
+    throw std::out_of_range("Our remove is out of range");
+  }
   if (loc == 0) {
     Node *newFirst = this->head->getNext();
     delete this->head;
@@ -120,7 +123,6 @@ void List::remove(int loc) {
     tmp = tmp->getNext();
     i++;
   }
-  throw std::out_of_range("Our remove is out of range");
 }
 
 List::~List() {
