@@ -120,7 +120,7 @@ void List::remove(int loc) {
     tmp = tmp->getNext();
     i++;
   }
-  throw std::out_of_range("Our insert is out of range");
+  throw std::out_of_range("Our remove is out of range");
 }
 
 List::~List() {
