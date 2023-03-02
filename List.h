@@ -7,6 +7,9 @@ class List{
   Node *head;
  public:
   List();
+
+  ~List();
+
   void insert(std::string data);
   void insert(int loc, std::string data); //0 indexed
   int length();

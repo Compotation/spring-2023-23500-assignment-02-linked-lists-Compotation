@@ -121,3 +121,14 @@ void List::remove(int loc) {
   }
   throw std::out_of_range("Our insert is out of range");
 }
+
+List::~List() {
+  Node *walker, *trailer;
+  walker = this->head; // start of the list
+  trailer = nullptr; // one behind
+  while (walker != nullptr) {
+    delete trailer;
+    trailer = walker;
+    walker = walker->getNext();
+  }
+}
