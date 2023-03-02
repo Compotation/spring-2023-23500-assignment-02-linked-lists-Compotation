@@ -100,3 +100,24 @@ bool List::contains(std::string item) {
   }
     return false;
 }
+
+void List::remove(int loc) {
+  if (loc == 0) {
+    Node *newFirst = this->head->getNext();
+    delete this->head;
+    this->head = newFirst;
+  }
+  Node *tmp = this->head;
+  int i = 0;
+  while (tmp != nullptr) {
+    if (i + 1 == loc) {
+      Node *nodeAfterRemoved = tmp->getNext()->getNext();
+      delete tmp->getNext();
+      tmp->setNext(nodeAfterRemoved);
+      return;
+    }
+    tmp = tmp->getNext();
+    i++;
+  }
+  throw std::out_of_range("Our insert is out of range");
+}
