@@ -135,3 +135,14 @@ OList::~OList() {
     walker = walker->getNext();
   }
 }
+
+std::string OList::get(int loc) {
+  if (loc >= this->length()) {
+    throw std::invalid_argument("Out of bounds");
+  }
+  Node *tmp = this->head;
+  for (int i = 0; i < loc; i++) {
+    tmp = tmp->getNext();
+  }
+  return tmp->getData();
+}

@@ -41,4 +41,6 @@ public:
   bool contains(const std::string &item);
 
   void remove(int loc);
+
+  std::string get(int loc);
 };

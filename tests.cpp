@@ -36,3 +36,12 @@ TEST_CASE("toString") {
   auto *l3 = new OList();
   CHECK_EQ(l3->toString(), "nullptr");
 }
+
+TEST_CASE("get") {
+  auto *l = new OList();
+  l->insert("!");
+  l->insert("world");
+  l->insert("hello");
+  CHECK_EQ(l->get(0), "hello");
+  CHECK_EQ(l->get(2), "!");
+}
