@@ -5,8 +5,8 @@ all: $(OBJECTS)
 main: $(OBJECTS)
 	g++ -g -o main $(OBJECTS)
 
-tests: tests.o List.o Node.o
-	g++ -g -o tests tests.o List.o Node.o doctest.h
+tests: tests.o List.o Node.o OList.o
+	g++ -g -o tests tests.o List.o Node.o OList.o doctest.h
 main.o: main.cpp OList.h List.h Node.h
 tests.o: tests.cpp doctest.h
 List.o: List.cpp List.h Node.h
