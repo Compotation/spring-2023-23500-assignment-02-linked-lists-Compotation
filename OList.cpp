@@ -146,3 +146,51 @@ std::string OList::get(int loc) {
   }
   return tmp->getData();
 }
+
+Node *OList::getPointer(int loc) {
+  if (loc >= this->length()) {
+    throw std::invalid_argument("Out of bounds");
+  }
+  Node *tmp = this->head;
+//  if (loc == 0) {
+//    return tmp;
+//  }
+
+  for (int i = 0; i < loc; i++) {
+    tmp = tmp->getNext();
+  }
+  return tmp;
+}
+
+void OList::reverse() {
+  int len = this->length();
+  for (int i = 0; i < len / 2; i++) {
+    std::cout << i << "\n";
+    if (i == 0) {
+      auto *firstNext = this->getPointer(this->length() - 2);
+      auto *first = this->getPointer(this->length() - 1);
+      auto *last = this->head;
+      this->head = first;
+      std::cout << this->head->getData() << "first\n";
+      first->setNext(firstNext);
+      firstNext->setNext(last);
+      last->setNext(nullptr);
+      std::cout << first->getData() << " " << first->getNext()->getData() << " "
+                << first->getNext()->getNext()->getData() << "\n";
+    } else {
+      auto *first = this->getPointer(this->length() - i - 1);
+      std::cout << "first index is: " << this->length() - i - 1 << " | first is: " << first->getData() << "\n";
+      auto *last = this->getPointer(i);
+      std::cout << "last index is: " << i << " | last is: " << last->getData() << "\n";
+
+      auto *firstNext = last->getNext();
+      std::cout << "firstNext: " << firstNext->getData() << "\n";
+      auto *lastNext = first->getNext();
+      std::cout << lastNext << "last next" << "head is: " << this->head->getData() << "done\n";
+      std::cout << "lastNext: " << lastNext->getData() << "\n";
+
+      first->setNext(firstNext);
+      last->setNext(lastNext);
+    }
+  }
+}

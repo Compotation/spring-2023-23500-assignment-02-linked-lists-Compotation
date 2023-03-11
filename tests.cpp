@@ -45,3 +45,15 @@ TEST_CASE("get") {
   CHECK_EQ(l->get(0), "hello");
   CHECK_EQ(l->get(2), "!");
 }
+
+TEST_CASE("reverse") {
+  auto *l = new OList();
+  l->insert("hello");
+  l->insert("world");
+  l->insert("!");
+  l->reverse();
+  std::cout << "done reverse\n";
+  std::cout << l->get(0) << " " << l->get(1) << l->get(2);
+  CHECK_EQ(l->toString(), "hello-->world-->!-->nullptr");
+
+}

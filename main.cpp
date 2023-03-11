@@ -14,6 +14,12 @@ int main() {
   std::cout << l->toString() << " " << l->length() << "\n";
   delete l;
   std::cout << "finished\n";
+  auto *l2 = new OList();
+  l2->insert("hello");
+  l2->insert("world");
+  l2->insert("!");
+  l2->reverse();
+
 //  l->insert(0,"a");
 //  std::cout << "bool: " << l->contains("ab") << "\n";
 //  std::cout << l->toString() << " " << l->length() << "\n";

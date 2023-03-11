@@ -6,6 +6,7 @@
 class OList {
 private:
   Node *head;
+  Node *getPointer(int loc);
 public:
   OList();
 
@@ -43,4 +44,7 @@ public:
   void remove(int loc);
 
   std::string get(int loc);
+
+  void reverse();
+
 };
