@@ -52,8 +52,26 @@ TEST_CASE("reverse") {
   l->insert("world");
   l->insert("!");
   l->reverse();
-  std::cout << "done reverse\n";
-  std::cout << l->get(0) << " " << l->get(1) << l->get(2);
   CHECK_EQ(l->toString(), "hello-->world-->!-->nullptr");
 
+  auto *l2 = new OList();
+  l2->insert("hello");
+  l2->insert("world");
+  l2->insert("!");
+  l2->insert("no");
+  l2->reverse();
+  CHECK_EQ(l2->toString(), "hello-->world-->!-->no-->nullptr");
+
+  auto *l3 = new OList();
+  l3->reverse();
+  CHECK_EQ(l3->toString(), "nullptr");
+
+  auto *l4 = new OList();
+  l4->insert("hi");
+  CHECK_EQ(l4->toString(), "hi-->nullptr");
+
+  auto *l5 = new OList();
+  l5->insert("hi");
+  l5->insert("me");
+  CHECK_EQ(l5->toString(), "me-->hi-->nullptr");
 }
