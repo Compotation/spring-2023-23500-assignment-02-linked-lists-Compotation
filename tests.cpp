@@ -75,3 +75,9 @@ TEST_CASE("reverse") {
   l5->insert("me");
   CHECK_EQ(l5->toString(), "me-->hi-->nullptr");
 }
+
+TEST_CASE("destructor") {
+  auto *l = new OList();
+  l->insert("hello");
+  delete l;
+}
