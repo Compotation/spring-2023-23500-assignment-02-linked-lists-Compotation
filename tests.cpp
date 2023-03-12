@@ -86,3 +86,26 @@ TEST_CASE("constructor") {
   auto *l = new OList();
   CHECK_EQ(l->toString(), "nullptr");
 }
+
+TEST_CASE("insert") {
+  auto *l = new OList();
+  l->insert("!");
+  l->insert("world");
+  l->insert("hello");
+  l->insert(0, "no");
+  CHECK_EQ(l->toString(), "no-->hello-->world-->!-->nullptr");
+
+  auto *l2 = new OList();
+  l2->insert("!");
+  l2->insert("world");
+  l2->insert("hello");
+  l2->insert(3, "no");
+  CHECK_EQ(l2->toString(), "hello-->world-->!-->no-->nullptr");
+
+  auto *l3 = new OList();
+  l3->insert("!");
+  l3->insert("world");
+  l3->insert("hello");
+  l3->insert(1, "no");
+  CHECK_EQ(l3->toString(), "hello-->no-->world-->!-->nullptr");
+}
