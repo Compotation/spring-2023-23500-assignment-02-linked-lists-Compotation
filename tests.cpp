@@ -81,3 +81,8 @@ TEST_CASE("destructor") {
   l->insert("hello");
   delete l;
 }
+
+TEST_CASE("constructor") {
+  auto *l = new OList();
+  CHECK_EQ(l->toString(), "nullptr");
+}
