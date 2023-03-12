@@ -5,14 +5,14 @@
 #include "OList.h"
 
 TEST_CASE("contains") {
-  List *l = new List();
+  auto *l = new OList();
   l->insert("hello");
   CHECK(l->contains("hello"));
   CHECK_FALSE(l->contains("a"));
 }
 
 TEST_CASE("remove") {
-  List *l = new List();
+  auto *l = new OList();
   l->insert("!");
   l->insert("world");
   l->insert("hello");
